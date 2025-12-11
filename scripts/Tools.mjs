@@ -1,9 +1,9 @@
 export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
-  const cards = list.map(template);
+  const cards = list.map(template).join("");
   if (clear) {
     parentElement.innerHTML = "";
   }
-  parentElement.insertAdjacentHTML(position, cards.join(""));
+  parentElement.insertAdjacentHTML(position, cards);
 }
 
 export function getLocalStorage(key) {
