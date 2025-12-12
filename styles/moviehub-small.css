@@ -166,7 +166,31 @@ h1 {
 
 /* ----------------- MOVIES DETAILS ----------------- */
 
+.m-details {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: 320px;
 
+    & img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+.main-details > * {
+    margin: 10px 0 10px 0;
+    padding: 0 10px;
+}
+
+.main-details h3 {
+    color: var(--red);
+}
+
+.trailer {
+    justify-self: center;
+    height: auto;
+}
 
 /* ----------------- CONTACT US ----------------- */
 
