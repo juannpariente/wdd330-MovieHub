@@ -164,17 +164,17 @@ h1 {
     }
 }
 
-/* ----------------- MOVIES DETAILS ----------------- */
+/* ----------------- MOVIE DETAILS ----------------- */
 
 .m-details {
     display: grid;
-    align-items: center;
     gap: 20px;
-    grid-template-columns: 320px;
+    grid-template-columns: 100%;
 
     & img {
         width: 300px;
         height: auto;
+        justify-self: center;
     }
 }
 
