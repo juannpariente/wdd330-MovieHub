@@ -164,6 +164,27 @@ h1 {
     }
 }
 
+.movie-card {
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: white;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.fav-btn.active {
+    color: gold;
+}
+
 /* ----------------- MOVIE DETAILS ----------------- */
 
 .m-details {
