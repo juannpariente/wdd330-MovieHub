@@ -129,6 +129,14 @@ h1 {
     border: 3px outset var(--red-hover);
 }
 
+#upcoming-movies button {
+    display: none;
+}
+
+h2 {
+    margin: 2px 0 7px;
+}
+
 /* ----------------- MOVIES ----------------- */
 
 .movie-grid {
@@ -141,6 +149,7 @@ h1 {
         justify-self: center;
         animation: fade-in 3s ease-out;
         border-radius: 12px;
+        transition: transform 0.3s ease-out;
 
         & a {
             text-decoration: none;
@@ -150,6 +159,10 @@ h1 {
             width: 300px;
             height: auto;
             border-radius: 4px;
+        }
+
+        &:hover {
+            transform: scale(1.02);
         }
     }
 }
@@ -173,8 +186,7 @@ h1 {
     position: absolute;
     top: 8px;
     right: 8px;
-    color: white;
-    background: white;
+    background: black;
     border: none;
     border-radius: 5px;
     padding: 2px 5px;

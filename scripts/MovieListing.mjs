@@ -2,7 +2,7 @@ import { getLocalStorage, setLocalStorage } from "./Tools.mjs";
 import { renderListWithTemplate } from "./Tools.mjs";
 import { getMovieData } from "./ExternalData.mjs";
 
-function movieCardTemplate(movieData) {
+export function movieCardTemplate(movieData) {
     return `<li class="movie-card">
         <a href="/wdd330-MovieHub/movie-details.html?movie=${movieData.id}">
             <img src="https://image.tmdb.org/t/p/w342${movieData.poster_path}" alt="${movieData.title}" loading="lazy" width="300" height="482">
@@ -13,6 +13,7 @@ function movieCardTemplate(movieData) {
             data-id="${movieData.id}"
             data-title="${movieData.title}"
             data-poster="${movieData.poster_path}"
+            data-rating="${movieData.vote_average}"
         >
             ★
         </button>
@@ -27,7 +28,7 @@ export async function displayMovies() {
     setupFavoriteButtons()
 }
 
-function setupFavoriteButtons() {
+export function setupFavoriteButtons() {
     const buttons = document.querySelectorAll(".fav-btn");
 
     buttons.forEach(btn => {
@@ -56,19 +57,5 @@ function setupFavoriteButtons() {
 
             setLocalStorage("fav", favs);
         });
-    });
-}
-
-export function displayFavoriteMovies() {
-    const btnFav = document.querySelector("#filter-fav-btn");
-
-    btnFav.addEventListener("click", () => {
-        const movieList = document.querySelector("#movie-list");
-
-        let favs = getLocalStorage("fav");
-
-        renderListWithTemplate(movieCardTemplate, movieList, favs, "afterbegin", true);
-
-        setupFavoriteButtons()
     });
 }

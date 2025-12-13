@@ -1,5 +1,6 @@
 import { initHeaderFooter } from "./HeaderFooter.mjs";
-import { displayMovies, displayFavoriteMovies } from "./MovieListing.mjs";
+import { displayMovies } from "./MovieListing.mjs";
+import { displayFavoriteMovies } from "./FilterMovies.mjs";
 
 initHeaderFooter();
 
