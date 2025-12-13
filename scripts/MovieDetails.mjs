@@ -13,16 +13,16 @@ export function renderTemplate(element, movieData, trailer, reviews) {
         <p>${movieData.genres.map(g => g.name).join(", ")}</p>
     </div>
     <div class="trailer">
-        <iframe src="https://www.youtube.com/embed/${trailer.key}" width="800" height="450"  allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/${trailer.key}" title="${movieData.title}" width="800" height="450"  allowfullscreen></iframe>
     </div>
     <div class="reviews">
-        <h3>Reviews</h3>
+        <h2>Reviews</h2>
         <ul>
             ${
                 reviews.length > 0
-                ? reviews.map(r => `
+                ? reviews.slice(0, 3).map(r => `
                     <li>
-                        <strong>${r.author}</strong><br>
+                        <p><strong>${r.author}</strong></p>
                         <p>${r.content}</p>
                     </li>
                 `).join("")

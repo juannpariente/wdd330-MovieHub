@@ -12,7 +12,10 @@ async function displayMovie() {
     const movie = await getMovieData(`movie/${movieId}?language=en-US`);
     const movieTrailer = await getMovieData(`movie/${movieId}/videos?language=en-US`);
     const movieReviews = await getMovieData(`movie/${movieId}/reviews?language=en-US`);
-    renderTemplate(movieElement, movie, movieTrailer, movieReviews);
+
+    const trailer = movieTrailer.results.find(video => video.site === "YouTube" && video.type === "Trailer");
+
+    renderTemplate(movieElement, movie, trailer, movieReviews.results);
 }
 
 displayMovie();

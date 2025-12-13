@@ -146,6 +146,7 @@ h2 {
         animation: fade-in 3s ease-out;
         border-radius: 12px;
         transition: transform 0.3s ease-out;
+        width: 300px;
 
         & a {
             text-decoration: none;
@@ -222,6 +223,7 @@ h2 {
 
     & img {
         width: 300px;
+        margin-top: 5px;
         height: auto;
         justify-self: center;
     }
@@ -237,8 +239,38 @@ h2 {
 }
 
 .trailer {
-    justify-self: center;
-    height: auto;
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+
+    & iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+.reviews {
+    padding: 10px;
+    
+    & li {
+        list-style-type: none;
+        box-shadow: 0 0 8px 2px var(--red-hover);
+        margin-top: 20px;
+        padding: 10px;
+        overflow: hidden;
+
+        & p:first-of-type {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            border-bottom: 1px solid white;
+        }
+
+        & p:nth-of-type(2) {
+            padding: 5px;
+        }
+    }
 }
 
 /* ----------------- CONTACT US ----------------- */
