@@ -149,6 +149,7 @@ h1 {
         & img {
             width: 300px;
             height: auto;
+            border-radius: 4px;
         }
     }
 }
@@ -183,6 +184,25 @@ h1 {
 
 .fav-btn.active {
     color: gold;
+}
+
+.filter-buttons {
+    margin-bottom: 10px;
+
+}
+
+.filter-fav {
+    padding: 6px;
+    background-color: gold;
+    color: #0c0c0c;
+    border-radius: 4px;
+    border: none;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+
+    &:hover {
+        background-color: goldenrod;
+    }
 }
 
 /* ----------------- MOVIE DETAILS ----------------- */
