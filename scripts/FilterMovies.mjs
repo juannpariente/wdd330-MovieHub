@@ -17,28 +17,15 @@ export function displayFavoriteMovies() {
     });
 }
 
-export async function displayUpcomingMovies() {
-    // const upcomingTemplate = `<li class="movie-card">
-    //     <a href="/wdd330-MovieHub/movie-details.html?movie=${movieData.id}">
-    //         <img src="https://image.tmdb.org/t/p/w342${movieData.poster_path}" alt="${movieData.title}" loading="lazy" width="300" height="482">
-    //         <h2>${movieData.title}</h2>
-    //     </a>
-    //     <button
-    //         class="fav-btn"
-    //         data-id="${movieData.id}"
-    //         data-title="${movieData.title}"
-    //         data-poster="${movieData.poster_path}"
-    //         data-rating="${movieData.vote_average}"
-    //     >
-    //         ★
-    //     </button>
-    // </li>`
+export async function displayTopRatedMovies() {
+    const movieList = document.querySelector("#top-rated-movies");
+    const movies = await getMovieData("movie/top_rated?language=en-US&page=1");
 
+    const descMovies = movies.results.sort((a, b) => b.vote_average - a.vote_average);
 
-    const movieList = document.querySelector("#upcoming-movies");
-    const movies = await getMovieData("movie/upcoming?language=en-US&page=1");
+    const topRated = descMovies.slice(0, 6);
 
-    const upcomingMovies = movies.results.slice(0, 2);
+    renderListWithTemplate(movieCardTemplate, movieList, topRated);
 
-    renderListWithTemplate(movieCardTemplate, movieList, upcomingMovies);
+    setupFavoriteButtons()
 }

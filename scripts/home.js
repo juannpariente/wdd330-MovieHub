@@ -1,6 +1,6 @@
 import { initHeaderFooter } from "./HeaderFooter.mjs";
-import { displayUpcomingMovies } from "./FilterMovies.mjs";
+import { displayTopRatedMovies } from "./FilterMovies.mjs";
 
 initHeaderFooter();
 
-displayUpcomingMovies()
+displayTopRatedMovies()
