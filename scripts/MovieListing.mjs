@@ -20,10 +20,12 @@ export function movieCardTemplate(movieData) {
     </li>`
 }
 
-export async function displayMovies() {
+let currentPage = 1
+
+export async function displayMovies(page = currentPage) {
     const movieList = document.querySelector("#movie-list");
-    const movies = await getMovieData("movie/popular?language=en-US&page=1");
-    renderListWithTemplate(movieCardTemplate, movieList, movies.results);
+    const movies = await getMovieData(`movie/popular?language=en-US&page=${page}`);
+    renderListWithTemplate(movieCardTemplate, movieList, movies.results, "afterbegin", true);
 
     setupFavoriteButtons()
 }
@@ -56,6 +58,38 @@ export function setupFavoriteButtons() {
             }
 
             setLocalStorage("fav", favs);
+        });
+    });
+}
+
+export function pageButtons() {
+    const prevBtn = document.querySelector("#prevPage");
+    const nextBtn = document.querySelector("#nextPage");
+    const pageNumber = document.querySelector("#pageNumber");
+
+
+
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            pageNumber.textContent = currentPage;
+            displayMovies(currentPage);
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentPage++;
+        pageNumber.textContent = currentPage;
+        displayMovies(currentPage);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
     });
 }

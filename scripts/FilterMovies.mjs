@@ -23,7 +23,7 @@ export async function displayTopRatedMovies() {
 
     const descMovies = movies.results.sort((a, b) => b.vote_average - a.vote_average);
 
-    const topRated = descMovies.slice(0, 6);
+    const topRated = descMovies.slice(0, 4);
 
     renderListWithTemplate(movieCardTemplate, movieList, topRated);
 

@@ -138,28 +138,33 @@ h2 {
 .movie-grid {
     list-style-type: none;
     display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
     & li {
         justify-self: center;
         animation: fade-in 3s ease-out;
         border-radius: 12px;
         transition: transform 0.3s ease-out;
-        width: 300px;
+        width: 200px;
 
         & a {
             text-decoration: none;
         }
 
         & img {
-            width: 300px;
+            width: 200px;
             height: auto;
             border-radius: 4px;
         }
 
         &:hover {
             transform: scale(1.02);
+        }
+
+        & h2 {
+            font-size: 1rem;
+            text-align: center;
         }
     }
 }
@@ -208,9 +213,34 @@ h2 {
     border: none;
     border-right: 3px solid goldenrod;
     border-bottom: 3px solid goldenrod;
+    margin-left: 5px;
 
     &:hover {
         background-color: goldenrod;
+    }
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+
+    & > * {
+        margin: 20px 10px 10px;
+    }
+
+    & button {
+        padding: 5px;
+        background-color: var(--red);
+        border: none;
+        border-right: 3px solid var(--red-hover);
+        border-bottom: 3px solid var(--red-hover);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--red-hover);
+        }
     }
 }
 
