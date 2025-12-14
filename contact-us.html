@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHub - Contact Us</title>
+    <meta name="description" content="WDD 330 | Final Project | MovieHub - Contact Us">
+    <meta name="author" content="Juan Pariente">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/moviehub-small.css">
+    <link rel="stylesheet" href="styles/moviehub-large.css">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="scripts/contact-us.js" type="module"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="main-header"></header>
+    <main>
+        <h1>Suggest a Movie!</h1>
+        <form id="suggestForm" class="suggest-form">
+            <label>First Name<input type="text" name="first-name" required title="Your First Name" autocomplete="given-name"></label>
+            <label>Last Name<input type="text" name="last-name" required title="Your Last Name" autocomplete="family-name"></label>
+            <label>Email<input type="email" name="email" required title="Your Email" autocomplete="email" placeholder="zack20@gmail.com"></label>
+            <label>Movie Title<input type="text" name="movie-title" required title="Movie title" placeholder="Top Gun: Maverick"></label>
+
+            <label>Description<textarea name="movie-description" title="Movie description"></textarea></label>
+            
+            <button id="suggestionButton">Send Suggestion</button>
+            <p id="sendText">Suggestion sent!</p>
+        </form>
+    </main>
+    <footer id="main-footer"></footer>
+</body>
+</html>
