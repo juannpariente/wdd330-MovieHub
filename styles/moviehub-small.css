@@ -202,7 +202,14 @@ h2 {
 
 .filter-buttons {
     margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
 
+    & select {
+        background-color: black;
+        border: 2px solid white;
+        cursor: pointer;
+    }
 }
 
 .filter-fav {
@@ -242,6 +249,10 @@ h2 {
             background-color: var(--red-hover);
         }
     }
+}
+
+.pagination.hidden {
+    display: none;
 }
 
 /* ----------------- MOVIE DETAILS ----------------- */

@@ -4,7 +4,7 @@ export function renderTemplate(element, movieData, trailer, reviews) {
     
     <div class="main-details">
         <h2>${movieData.title}</h2>
-        <p>Rating: ${movieData.vote_average} | Year: ${movieData.release_date.slice(0, 4)}</p>
+        <p>Rating: ${movieData.vote_average.toFixed(1)}⭐ | Year: ${movieData.release_date.slice(0, 4)}</p>
 
         <h3>Synopsis</h3>
         <p>${movieData.overview}</p>

@@ -1,6 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./Tools.mjs";
-import { renderListWithTemplate } from "./Tools.mjs";
-import { getMovieData } from "./ExternalData.mjs";
+import { displayMovies } from "./FilterMovies.mjs";
 
 export function movieCardTemplate(movieData) {
     return `<li class="movie-card">
@@ -18,16 +17,6 @@ export function movieCardTemplate(movieData) {
             ★
         </button>
     </li>`
-}
-
-let currentPage = 1
-
-export async function displayMovies(page = currentPage) {
-    const movieList = document.querySelector("#movie-list");
-    const movies = await getMovieData(`movie/popular?language=en-US&page=${page}`);
-    renderListWithTemplate(movieCardTemplate, movieList, movies.results, "afterbegin", true);
-
-    setupFavoriteButtons()
 }
 
 export function setupFavoriteButtons() {
@@ -62,18 +51,27 @@ export function setupFavoriteButtons() {
     });
 }
 
+let currentPage = 1;
+let currentType = "popular";
+
+export function setTypes(type) {
+    const pageNumber = document.querySelector("#pageNumber");
+    
+    currentPage = 1;
+    currentType = type;
+    pageNumber.textContent = currentPage;
+}
+
 export function pageButtons() {
     const prevBtn = document.querySelector("#prevPage");
     const nextBtn = document.querySelector("#nextPage");
     const pageNumber = document.querySelector("#pageNumber");
 
-
-
     prevBtn.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
             pageNumber.textContent = currentPage;
-            displayMovies(currentPage);
+            displayMovies(currentType, currentPage);
 
             window.scrollTo({
                 top: 0,
@@ -85,7 +83,7 @@ export function pageButtons() {
     nextBtn.addEventListener("click", () => {
         currentPage++;
         pageNumber.textContent = currentPage;
-        displayMovies(currentPage);
+        displayMovies(currentType, currentPage);
 
         window.scrollTo({
             top: 0,
