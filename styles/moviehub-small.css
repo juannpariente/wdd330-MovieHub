@@ -293,7 +293,7 @@ h2 {
 
 label {
     display: block;
-    margin: 15px 5px;
+    margin: 20px auto;
 }
 
 input[type=text],
@@ -301,7 +301,8 @@ input[type=email],
 textarea,
 .suggest-form button {
     display: block;
-    width: 300px;
+    width: 290px;
+    margin: 0 auto;
     padding: 6px;
     box-sizing: border-box;
     border-radius: 5px;
