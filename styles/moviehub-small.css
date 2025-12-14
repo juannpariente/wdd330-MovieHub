@@ -115,18 +115,20 @@ h1 {
     text-align: center;
     padding: 10px;
     background: var(--red);
-    border: 3px outset white;
+    border: 5px solid var(--red-hover);
+    border-top: none;
     border-radius: 5px;
     width: 30%;
     height: auto;
     top: 60%;
     left: 50%;
     transform: translateX(-50%);
+    transition: transform 0.3s ease-out;
 }
 
 .cta a:hover {
     background: var(--red-hover);
-    border: 3px outset var(--red-hover);
+    transform: scale(0.9) translate(-55%);
 }
 
 h2 {
@@ -156,6 +158,10 @@ h2 {
             width: 200px;
             height: auto;
             border-radius: 4px;
+
+            &:hover {
+                box-shadow: 0 0 5px 0.1px white;
+            }
         }
 
         &:hover {

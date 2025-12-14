@@ -5,7 +5,7 @@ import { getMovieData } from "./ExternalData.mjs";
 
 export async function displayMovies(type = "popular", page = 1) {
     const movieList = document.querySelector("#movie-list");
-    const movies = await getMovieData(`movie/${type}?language=en-US&page=${page}`);
+    const movies = await getMovieData(`movie/${type}?language=en-US&region=US&page=${page}`);
     renderListWithTemplate(movieCardTemplate, movieList, movies.results, "afterbegin", true);
 
     setupFavoriteButtons();
@@ -29,14 +29,14 @@ export function displayFavoriteMovies() {
 }
 
 export async function displayTopRatedMovies() {
-    const movieList = document.querySelector("#top-rated-movies");
-    const movies = await getMovieData("movie/top_rated?language=en-US&page=1");
+    const movieList = document.querySelector("#homeMovies");
+    const movies = await getMovieData("movie/upcoming?language=en-US&region=US&page=1");
 
     const descMovies = movies.results.sort((a, b) => b.vote_average - a.vote_average);
 
-    const topRated = descMovies.slice(0, 4);
+    const upcomingMovies = descMovies.slice(0, 4);
 
-    renderListWithTemplate(movieCardTemplate, movieList, topRated);
+    renderListWithTemplate(movieCardTemplate, movieList, upcomingMovies);
 
     setupFavoriteButtons();
 }
